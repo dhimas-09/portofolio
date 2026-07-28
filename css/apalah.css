@@ -1,0 +1,604 @@
+:root {
+    --bg: #010101;
+    --text: #f1f0eb;
+    --muted: #858585;
+    --line: #2b2b2b;
+    --accent: #d9ff0043;
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+html {
+    scroll-behavior: smooth;
+}
+
+body {
+    background: var(--bg);
+    color: var(--text);
+    font-family: "Manrope", sans-serif;
+    overflow-x: hidden;
+}
+
+a {
+    color: inherit;
+    text-decoration: none;
+}
+
+
+/* =========================
+   CURSOR
+========================= */
+
+.cursor {
+    width: 18px;
+    height: 18px;
+    background: var(--accent);
+    border-radius: 50%;
+    position: fixed;
+    pointer-events: none;
+    z-index: 9999;
+
+    transform: translate(-50%, -50%);
+
+    transition:
+        width .3s ease,
+        height .3s ease;
+}
+
+
+/* =========================
+   NAVBAR
+========================= */
+
+.navbar {
+    height: 90px;
+    padding: 0 5vw;
+
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+
+    border-bottom: 1px solid var(--line);
+
+    position: fixed;
+    width: 100%;
+    top: 0;
+
+    background: rgba(17,17,17,.8);
+    backdrop-filter: blur(15px);
+
+    z-index: 100;
+}
+
+.logo {
+    font-size: 28px;
+    font-weight: 800;
+}
+
+nav {
+    display: flex;
+    gap: 40px;
+}
+
+nav a {
+    font-family: "DM Mono", monospace;
+    font-size: 12px;
+    text-transform: uppercase;
+    color: var(--muted);
+
+    transition: .3s;
+}
+
+nav a:hover {
+    color: var(--accent);
+}
+
+.availability {
+    font-family: "DM Mono", monospace;
+    font-size: 11px;
+
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+
+.availability span {
+    width: 8px;
+    height: 8px;
+
+    background:#d9ff00  ;
+    border-radius: 50%;
+}
+
+
+/* =========================
+   HERO
+========================= */
+
+.hero {
+    min-height: 100vh;
+
+    padding:
+        150px 5vw
+        60px;
+
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+}
+
+.hero-label {
+    font-family: "DM Mono", monospace;
+    font-size: 11px;
+
+    display: flex;
+    gap: 20px;
+
+    color: var(--muted);
+}
+
+.hero-label span {
+    color: var(--accent);
+}
+
+.hero-title {
+    margin-top: 100px;
+}
+
+.hero-title h1 {
+    font-size: clamp(60px, 10vw, 160px);
+
+    line-height: .82;
+    letter-spacing: -7px;
+
+    font-weight: 800;
+
+    max-width: 1200px;
+}
+.hero-title h1 p{
+color: #d9ff00;
+}
+
+.hero-title span {
+
+    color:  #d9ff00;
+
+}
+
+.hero-title i {
+    color: var(--accent);
+    font-style: normal;
+}
+
+.hero-bottom {
+    display: flex;
+    justify-content: space-between;
+    align-items: end;
+
+    margin-top: 100px;
+}
+
+.hero-bottom p {
+    max-width: 390px;
+
+    color: var(--muted);
+    line-height: 1.7;
+    font-size: 20px;
+}
+
+.scroll {
+    font-family: "DM Mono", monospace;
+    font-size: 10px;
+
+    display: flex;
+    gap: 20px;
+}
+
+.scroll span {
+    color: var(--accent);
+    font-size: 20px;
+}
+
+
+/* =========================
+   MARQUEE
+========================= */
+
+.marquee {
+    border-top: 1px solid var(--line);
+    border-bottom: 1px solid var(--line);
+
+    padding: 25px 0;
+
+    overflow: hidden;
+}
+
+.marquee div {
+    font-size: 30px;
+    font-weight: 700;
+
+    white-space: nowrap;
+
+    animation: move 20s linear infinite;
+}
+
+@keyframes move {
+
+    from {
+        transform: translateX(0);
+    }
+
+    to {
+        transform: translateX(-50%);
+    }
+
+}
+
+
+/* =========================
+   WORK
+========================= */
+
+.work {
+    padding: 150px 5vw;
+}
+
+.section-heading {
+    display: flex;
+    justify-content: space-between;
+
+    font-family: "DM Mono", monospace;
+    font-size: 11px;
+
+    color: var(--muted);
+
+    margin-bottom: 80px;
+}
+
+.section-heading span {
+    color: var(--accent);
+}
+
+.projects {
+    display: grid;
+    grid-template-columns: repeat(12, 1fr);
+    gap: 80px 30px;
+    margin-left: 50px;
+}
+
+.project {
+    cursor: pointer;
+    background:
+        linear-gradient(
+            135deg,
+            #575757
+        );
+    box-shadow: #111111ca ;
+}
+
+.project-large {
+    grid-column: span 7;
+    margin-left: 50px;
+}
+.projek-medium {
+    grid-column: span 8;
+    margin-left: 50px;
+}
+
+.project-small {
+    grid-column: span 6;
+    margin-top: 10px;
+}
+
+.project-image {
+    height: 500px;
+
+    
+    overflow: hidden;
+    object-position: center;
+    display: flex;
+    align-items: flex-start;
+    justify-content: space-between;
+
+    padding: 25px;
+
+    transition: .4s;
+}
+
+.project-large .project-image {
+    height: 510px;
+
+}
+
+.project-one {
+    background-image: url(/web\ portofolio/asset/porsche\ gt3\ rs.png);
+    background-size: cover;
+    
+}
+
+.project-two {
+background-image: url(/web\ portofolio/asset/Screenshot\ 2026-07-24\ 111110.png);
+background-size: cover;
+}
+
+.project-three {
+background-image: url(/web\ portofolio/asset/Screenshot\ 2026-07-23\ 132505.png);
+background-size: cover;
+}
+
+.project-image > span {
+    font-family: "DM Mono", monospace;
+    font-size: 12px;
+
+    color: var(--accent);
+ 
+}
+
+.project-overlay {
+    position: absolute ;
+
+    inset: 0;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    background: var(--accent); 
+    color: #111;
+
+    font-family: "DM Mono", monospace;
+    font-size: 20px;
+
+    opacity: 0;
+
+    transition: .4s;
+}
+
+.project:hover .project-overlay {
+    opacity: 1;
+}
+
+.project:hover .project-image {
+    transform: scale(.98);
+}
+
+.project-info {
+    padding-top: 20px;
+
+    display: flex;
+    justify-content: space-between;
+
+    border-bottom: 1px solid var(--line);
+
+    padding-bottom: 20px;
+}
+
+.project-info h2 {
+    font-size: 22px;
+    margin-left: 10px;
+}
+.project-info p {
+    
+    margin-left: 10px;
+}
+
+.project-info p,
+.project-info > span {
+    color: var(--muted);
+    font-family: "DM Mono", monospace;
+    font-size: 10px;
+
+    margin-top: 7px;
+}
+
+
+/* =========================
+   ABOUT
+========================= */
+
+.about {
+    padding: 150px 5vw;
+
+    border-top: 1px solid var(--line);
+}
+
+.about-content {
+    display: grid;
+
+    grid-template-columns: 1.5fr 1fr;
+
+    gap: 100px;
+}
+
+.about-content h2 {
+    font-size: clamp(50px, 8vw, 120px);
+
+    line-height: .9;
+    letter-spacing: -5px;
+}
+
+.about-content h2 span {
+    color: #d9ff00;
+}
+
+.about-text {
+    max-width: 450px;
+}
+
+.about-text p {
+    color: var(--muted);
+
+    line-height: 1.8;
+
+    margin-bottom: 25px;
+}
+
+.skills {
+    display: flex;
+    flex-wrap: wrap;
+
+    gap: 8px;
+
+    margin-top: 40px;
+}
+
+.skills span {
+    border: 1px solid var(--line);
+
+    padding: 10px 15px;
+
+    font-family: "DM Mono", monospace;
+    font-size: 10px;
+}
+
+
+/* =========================
+   CONTACT
+========================= */
+
+.contact {
+    padding: 150px 5vw;
+
+    min-height: 80vh;
+
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+
+.contact-label {
+    color: var(--accent);
+
+    font-family: "DM Mono", monospace;
+    font-size: 11px;
+
+    margin-bottom: 60px;
+}
+
+.contact h2 {
+    font-size: clamp(70px, 13vw, 200px);
+
+    line-height: .8;
+    letter-spacing: -8px;
+}
+
+.contact h2 i {
+    color: #d9ff00;
+    font-style: normal;
+}
+
+.email {
+    margin-top: 70px;
+
+    font-family: "DM Mono", monospace;
+    font-size: 14px;
+
+    width: fit-content;
+
+    border-bottom: 1px solid #d9ff00;
+
+    padding-bottom: 10px;
+}
+
+
+/* =========================
+   FOOTER
+========================= */
+
+footer {
+    border-top: 1px solid var(--line);
+
+    padding: 30px 5vw;
+
+    display: flex;
+    justify-content: space-between;
+
+    color: var(--muted);
+
+    font-family: "DM Mono", monospace;
+    font-size: 10px;
+}
+
+.socials {
+    display: flex;
+    gap: 25px;
+}
+
+.socials a:hover {
+    color: var(--accent);
+}
+
+
+/* =========================
+   RESPONSIVE
+========================= */
+
+@media (max-width: 768px) {
+
+    .navbar {
+        height: 70px;
+    }
+
+    nav {
+        display: none;
+    }
+
+    .availability {
+        font-size: 9px;
+    }
+
+    .hero {
+        padding-top: 120px;
+    }
+
+    .hero-title h1 {
+        letter-spacing: -3px;
+    }
+
+    .hero-bottom {
+        flex-direction: column;
+        align-items: flex-start;
+
+        gap: 40px;
+    }
+
+    .projects {
+        display: block;
+    }
+
+    .project,
+    .project-small {
+        margin-top: 0;
+        margin-bottom: 80px;
+    }
+
+    .project-image,
+    .project-large .project-image {
+        height: 400px;
+    }
+
+    .about-content {
+        grid-template-columns: 1fr;
+
+        gap: 60px;
+    }
+
+    .about-content h2 {
+        letter-spacing: -3px;
+    }
+
+    footer {
+        flex-direction: column;
+
+        gap: 20px;
+    }
+
+    .cursor {
+        display: none;
+    }
+
+}
